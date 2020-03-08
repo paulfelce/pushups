@@ -9,7 +9,6 @@ var myfbRef = new Firebase(GetKey());
   var mytime = (new Date())
   var time = mytime.getHours() + ':' + mytime.getMinutes()+ ':' + mytime.getSeconds()
   
-  
  var obj = {
    time:mytime_ms,count:pushupsdone,time:time,type:"value"
  } 
@@ -25,7 +24,7 @@ function ReadData()
   console.log('reading');
    var myfbRef = new Firebase('https://blinding-fire-6477.firebaseio.com/PressUps');   
    var total=0;
-    myfbRef.child('2020-3-7').once("value", function(snapshot) {
+    myfbRef.child(GetDateString()).once("value", function(snapshot) {
     snapshot.forEach(function(data) {        
       total = total + parseInt( data.val().count);
       document.getElementById('total').innerHTML = total;
@@ -37,14 +36,15 @@ function ReadData()
 
 
 function GetKey()
+{    
+  key ='https://blinding-fire-6477.firebaseio.com/PressUps/'+GetDateString() ;
+  return key;  
+}
+
+function GetDateString()
 {
-  var myDate = (new Date())
-  var key = myDate.getFullYear() + '-' + (myDate.getMonth()+1) + '-'+(myDate.getDay()+1);
-  
-  key ='https://blinding-fire-6477.firebaseio.com/PressUps/'+key ;
-  alert(key);
-  return key;
-  
-  
+ var myDate = (new Date())
+  var result = myDate.getFullYear() + '-' + (myDate.getMonth()+1) + '-'+(myDate.getDate()+1);    
+  return result;  
 }
 
