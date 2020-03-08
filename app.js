@@ -41,7 +41,7 @@ function GetKey()
   var key = myDate.getFullYear() + '-' + (myDate.getMonth()+1) + '-'+(myDate.getDay()+1);
   
   key ='https://blinding-fire-6477.firebaseio.com/PressUps/'+key ;
-  
+  alert(key);
   return key;
   
   
