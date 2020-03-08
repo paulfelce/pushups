@@ -1,4 +1,5 @@
 function Save(){   
+ alert('saving');
  //* Save in a key for today, the count, time in ms and the date */ 
 var myfbRef = new Firebase(GetKey());  
  
