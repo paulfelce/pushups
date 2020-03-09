@@ -54,6 +54,6 @@ function GetKey()
 function GetDateString()
 {
  var myDate = (new Date())
-  var result = myDate.getFullYear() + '-' + (myDate.getMonth()+1) + '-'+(myDate.getDate()+1);    
+  var result = myDate.getFullYear() + '-' + (myDate.getMonth()+1) + '-'+(myDate.getDate());    
   return result;  
 }
