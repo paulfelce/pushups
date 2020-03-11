@@ -6,7 +6,7 @@ $(function() {
    var mytime_ms =(new Date()).getTime();
   var mytime = (new Date())
   var time = mytime.getHours() + ':' + mytime.getMinutes()+ ':' + mytime.getSeconds()
-  
+  console.log(time);
   document.getElementById('currenttime').innerHTML = time;  
 });
 
