@@ -1,6 +1,8 @@
   
 $(function() {
    ReadData();
+   document.getElementById('currentdate').innerHTML = GetDateString();
+  
 });
 
 
