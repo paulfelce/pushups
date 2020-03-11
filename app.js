@@ -3,6 +3,11 @@ $(function() {
    ReadData();
    document.getElementById('currentdate').innerHTML = GetDateString();
   
+   var mytime_ms =(new Date()).getTime();
+  var mytime = (new Date())
+  var time = mytime.getHours() + ':' + mytime.getMinutes()+ ':' + mytime.getSeconds()
+  
+  document.getElementById('currenttime').innerHTML = time;  
 });
 
 
