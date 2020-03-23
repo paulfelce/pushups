@@ -38,8 +38,9 @@ function Save33()
   SaveX(33);
 }
 
-function SaveX(var x)
+function SaveX( x)
 {
+  console.log ("Saving " + x );
 var myfbRef = new Firebase(GetKey());  
  
    var pushupsdone = x;
