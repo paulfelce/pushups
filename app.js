@@ -31,6 +31,7 @@ var myfbRef = new Firebase(GetKey());
 
 function Save25()
 {
+  alert("test");
    console.log ("Saving25 " );
 }
 function Save33()
