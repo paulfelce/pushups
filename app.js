@@ -13,8 +13,7 @@ $(function() {
 
 
 function Save(){   
-
- //* Save in a key for today, the count, time in ms and the date */ 
+//* Save in a key for today, the count, time in ms and the date */ 
 var myfbRef = new Firebase(GetKey());  
  
    var pushupsdone = document.getElementById("pushupsdone").value
@@ -30,6 +29,33 @@ var myfbRef = new Firebase(GetKey());
   ReadData();
 }
 
+function Save25()
+{
+  SaveX(25);
+}
+function Save33()
+{
+  SaveX(33);
+}
+
+function SaveX(var x)
+{
+var myfbRef = new Firebase(GetKey());  
+ 
+   var pushupsdone = x;
+  
+ var mytime_ms =(new Date()).getTime();
+  var mytime = (new Date())
+  var time = mytime.getHours() + ':' + mytime.getMinutes()+ ':' + mytime.getSeconds()
+  
+ var obj = {
+   time:mytime_ms,count:pushupsdone,time:time,type:"value"
+ } 
+  myfbRef.push(obj);  
+  ReadData();
+  
+  
+}
 
 
 function ReadData()
