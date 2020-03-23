@@ -33,6 +33,7 @@ function Save25()
 {
   alert("test");
    console.log ("Saving25 " );
+  SaveX(25);
 }
 function Save33()
 {
