@@ -54,6 +54,7 @@ var myfbRef = new Firebase(GetKey());
  var obj = {
    time:mytime_ms,count:pushupsdone,time:time,type:"value"
  } 
+ alert('pushing ' + x);
   myfbRef.push(obj);  
   ReadData();
   
