@@ -35,7 +35,7 @@ function SaveX( x)
  var time = mytime.getHours() + ':' + mytime.getMinutes()+ ':' + mytime.getSeconds()
   
  var obj = {
-   time:mytime_ms,count:pushupsdone,time:time,type:"value"
+   time:mytime_ms,count:pushupsdone,time:time,type:"value",date:GetKey()
  }
  
   myfbRef.push(obj);  
