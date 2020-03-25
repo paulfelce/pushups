@@ -1,6 +1,7 @@
   
 $(function() {
    ReadData();
+   ReadHistory();
    document.getElementById('currentdate').innerHTML = GetDateString();
   
    var mytime_ms =(new Date()).getTime();
@@ -77,3 +78,41 @@ function GetDateString()
   var result = myDate.getFullYear() + '-' + (myDate.getMonth()+1) + '-'+(myDate.getDate());    
   return result;  
 }
+
+function ReadHistory()
+{
+  //Read nodes for the last 30 days. Then loop over and get the total.
+  
+   var result_table = ""
+   var myfbRef = new Firebase('https://blinding-fire-6477.firebaseio.com/PressUps');   
+   var total=0;
+   
+   var daynum=20;
+  var table = document.getElementById("history"); 
+  while ( daynum<=25)
+   {
+     
+	  datestring ='2020-3-'+daynum;	  
+	  myfbRef.child(datestring).once("value", function(snapshot) {
+      total=0;
+	  snapshot.forEach(function(data) {              
+      console.log(data.val());
+      total = total + parseInt( data.val().count);                                       datadate = data.val().date;
+    });
+    
+    var row = table.insertRow(0)                                     ;
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = datadate;
+    cell2.innerHTML = total;
+      total= total;
+});
+
+daynum++;
+   }//End while
+   
+
+	
+	
+}
+
