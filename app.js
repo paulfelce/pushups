@@ -48,19 +48,30 @@ function SaveX( x)
 
 function ReadData()
 {
-  //Read all children of today's node. Then loop over and get the total.
-  console.log('reading');
+  //Read all children of today's node. Then loop over and get the total.  
    var result_table = ""
    var myfbRef = new Firebase('https://blinding-fire-6477.firebaseio.com/PressUps');   
    var total=0;
+   var table = document.getElementById("results2"); 
     myfbRef.child(GetDateString()).once("value", function(snapshot) {
     snapshot.forEach(function(data) {        
       total = total + parseInt( data.val().count);
-      result_table = result_table + "<TR><TD>" + data.val().time + "</TD><TD>" + data.val().count + "</TD></TR>"
+    
+    var row = table.insertRow(0)                                     ;
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    cell1.innerHTML = data.val().time;
+    cell2.innerHTML = data.val().count;
+	    result_table = result_table + "<TR><TD>" + data.val().time + "</TD><TD>" + data.val().count + "</TD></TR>"
       document.getElementById("results").innerHTML = "<TABLE width=120px><TR><TH>Time</TH><TH>Count</TH>" + result_table + "</TABLE>"
       document.getElementById('total').innerHTML = "<H1>Total: " + total + "</H1>";
     });
 
+	          
+    
+      total= total;
+	    
+	    
 });
 
 }
@@ -97,10 +108,10 @@ function ReadHistory()
       total=0;
 	  snapshot.forEach(function(data) {              
       console.log(data.val());
-      total = total + parseInt( data.val().count);                                       datadate = data.val().date;
+      total = total + parseInt( data.val().count);                                       
+      datadate = data.val().date;
     });
-    
-    var row = table.insertRow(0)                                     ;
+          var row = table.insertRow(0);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     cell1.innerHTML = datadate;
