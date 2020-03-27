@@ -52,7 +52,7 @@ function ReadData()
    var result_table = ""
    var myfbRef = new Firebase('https://blinding-fire-6477.firebaseio.com/PressUps');   
    var total=0;
-   var table = document.getElementById("results2"); 
+   var table = document.getElementById("results"); 
     myfbRef.child(GetDateString()).once("value", function(snapshot) {
     snapshot.forEach(function(data) {        
       total = total + parseInt( data.val().count);
@@ -61,9 +61,8 @@ function ReadData()
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     cell1.innerHTML = data.val().time;
-    cell2.innerHTML = data.val().count;
-	    result_table = result_table + "<TR><TD>" + data.val().time + "</TD><TD>" + data.val().count + "</TD></TR>"
-      document.getElementById("results").innerHTML = "<TABLE width=120px><TR><TH>Time</TH><TH>Count</TH>" + result_table + "</TABLE>"
+    cell2.innerHTML = data.val().count;	  
+      
       document.getElementById('total').innerHTML = "<H1>Total: " + total + "</H1>";
     });
 
