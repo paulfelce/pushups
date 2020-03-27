@@ -57,7 +57,7 @@ function ReadData()
     snapshot.forEach(function(data) {        
       total = total + parseInt( data.val().count);
     
-    var row = table.insertRow(0)                                     ;
+    var row = table.insertRow(-1)                                     ;
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     cell1.innerHTML = data.val().time;
@@ -111,7 +111,7 @@ function ReadHistory()
       total = total + parseInt( data.val().count);                                       
       datadate = data.val().date;
     });
-          var row = table.insertRow(0);
+          var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     cell1.innerHTML = datadate;
