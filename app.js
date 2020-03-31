@@ -49,10 +49,11 @@ function SaveX( x)
 function ReadData()
 {
   //Read all children of today's node. Then loop over and get the total.  
-   var result_table = ""
+   
    var myfbRef = new Firebase('https://blinding-fire-6477.firebaseio.com/PressUps');   
    var total=0;
-   var table = document.getElementById("results"); 
+   var table = document.getElementById("results");
+	tabler.innerHTML="";
     myfbRef.child(GetDateString()).once("value", function(snapshot) {
     snapshot.forEach(function(data) {        
       total = total + parseInt( data.val().count);
