@@ -53,7 +53,7 @@ function ReadData()
    var myfbRef = new Firebase('https://blinding-fire-6477.firebaseio.com/PressUps');   
    var total=0;
    var table = document.getElementById("results");
-	tabler.innerHTML="";
+	table.innerHTML="";
     myfbRef.child(GetDateString()).once("value", function(snapshot) {
     snapshot.forEach(function(data) {        
       total = total + parseInt( data.val().count);
