@@ -1,0 +1,24 @@
+<HTML>
+<HEAD>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.33/pdfmake.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.33/vfs_fonts.js"></script>
+
+<script>
+function createPDF()
+{ 
+  var dd = {
+	content: [
+		'First paragraph',
+		'Another paragraph, this time a little bit longer to make sure, this line will be divided into at least two lines'
+	]
+	
+}
+  pdfMake.createPdf(dd).download("test2.pdf");
+}
+</script>
+
+</HEAD>
+<button onclick="createtestpdf()">Create Test pdf</button>
+
+
+</HTML>
